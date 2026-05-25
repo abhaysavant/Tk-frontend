@@ -1,0 +1,5 @@
+{
+  "installCommand": "npm install --prefix \"tk bound\"",
+  "buildCommand": "npm run build --prefix \"tk bound\"",
+  "outputDirectory": "tk bound/dist"
+}
