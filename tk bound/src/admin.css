@@ -1,0 +1,302 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+/* Use class-based dark mode: .dark on <html> triggers dark styles */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-border: var(--card-border);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover-border: var(--popover-border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-border: var(--destructive-border);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ─── LIGHT MODE (default) ─── */
+.admin-theme {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: hsl(45 62% 89%);      /* Cream */
+  --foreground: hsl(162 36% 11%);     /* Dark green/charcoal */
+  --border: hsl(39 48% 48%);          /* Tan */
+
+  --card: hsl(45 62% 95%);            /* Lighter Cream */
+  --card-foreground: hsl(162 36% 11%);
+  --card-border: hsl(39 48% 48%);
+
+  --sidebar: hsl(162 36% 11%);        /* Dark green sidebar */
+  --sidebar-foreground: hsl(45 62% 89%);
+  --sidebar-border: hsl(39 48% 48%);
+  --sidebar-primary: hsl(39 59% 61%); /* Gold accent */
+  --sidebar-primary-foreground: hsl(162 36% 11%);
+  --sidebar-accent: hsl(162 30% 16%);
+  --sidebar-accent-foreground: hsl(45 62% 89%);
+  --sidebar-ring: hsl(39 59% 61%);
+
+  --popover: hsl(45 62% 95%);
+  --popover-foreground: hsl(162 36% 11%);
+  --popover-border: hsl(39 48% 48%);
+
+  --primary: hsl(39 59% 61%);         /* Gold */
+  --primary-foreground: hsl(162 36% 11%);
+
+  --secondary: hsl(39 48% 48%);
+  --secondary-foreground: hsl(45 62% 89%);
+
+  --muted: hsl(45 40% 82%);
+  --muted-foreground: hsl(162 20% 40%);
+
+  --accent: hsl(39 59% 61%);
+  --accent-foreground: hsl(162 36% 11%);
+
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+
+  --input: hsl(39 48% 48%);
+  --ring: hsl(39 59% 61%);
+
+  --chart-1: hsl(160 60% 45%);
+  --chart-2: hsl(38 92% 50%);
+  --chart-3: hsl(238 84% 67%);
+  --chart-4: hsl(262 80% 70%);
+  --chart-5: hsl(0 84% 60%);
+
+  --app-font-sans: 'Inter', sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: .625rem;
+
+  --sidebar-primary-border: hsl(from var(--sidebar-primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from var(--sidebar-accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(from var(--primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from var(--secondary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from var(--muted) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from var(--accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from var(--destructive) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* ─── LIGHT MODE THEME COLOR OVERRIDES ─── */
+/* Only applied when NOT in dark mode */
+html:not(.dark)[data-theme="cream"] .admin-theme {
+  --primary: hsl(45 62% 75%);
+  --primary-foreground: hsl(162 36% 11%);
+  --sidebar-primary: hsl(45 62% 75%);
+  --sidebar-primary-foreground: hsl(162 36% 11%);
+  --accent: hsl(45 62% 75%);
+  --accent-foreground: hsl(162 36% 11%);
+  --ring: hsl(45 62% 75%);
+}
+
+html:not(.dark)[data-theme="green"] .admin-theme {
+  --primary: hsl(162 50% 30%);
+  --primary-foreground: hsl(45 62% 95%);
+  --sidebar-primary: hsl(162 50% 30%);
+  --sidebar-primary-foreground: hsl(45 62% 95%);
+  --accent: hsl(162 50% 30%);
+  --accent-foreground: hsl(45 62% 95%);
+  --ring: hsl(162 50% 30%);
+}
+
+html:not(.dark)[data-theme="gold"] .admin-theme {
+  --primary: hsl(39 59% 61%);
+  --primary-foreground: hsl(162 36% 11%);
+  --sidebar-primary: hsl(39 59% 61%);
+  --sidebar-primary-foreground: hsl(162 36% 11%);
+  --accent: hsl(39 59% 61%);
+  --accent-foreground: hsl(162 36% 11%);
+  --ring: hsl(39 59% 61%);
+}
+
+/* ─── DARK MODE ─── */
+/* Applied when .dark class is on <html> */
+html.dark .admin-theme {
+  --background: hsl(222 47% 7%);      /* Near black */
+  --foreground: hsl(210 40% 95%);     /* Off white */
+  --border: hsl(217 33% 20%);         /* Dark grey border */
+
+  --card: hsl(222 47% 11%);           /* Dark card */
+  --card-foreground: hsl(210 40% 95%);
+  --card-border: hsl(217 33% 20%);
+
+  --sidebar: hsl(224 71% 4%);         /* Almost black sidebar */
+  --sidebar-foreground: hsl(210 40% 90%);
+  --sidebar-border: hsl(217 33% 15%);
+  --sidebar-primary: hsl(221 83% 53%);  /* Blue accent */
+  --sidebar-primary-foreground: hsl(210 40% 98%);
+  --sidebar-accent: hsl(222 47% 14%);
+  --sidebar-accent-foreground: hsl(210 40% 90%);
+  --sidebar-ring: hsl(221 83% 53%);
+
+  --popover: hsl(222 47% 11%);
+  --popover-foreground: hsl(210 40% 95%);
+  --popover-border: hsl(217 33% 20%);
+
+  --primary: hsl(221 83% 53%);        /* Blue 600 */
+  --primary-foreground: hsl(210 40% 98%);
+
+  --secondary: hsl(217 33% 17%);
+  --secondary-foreground: hsl(210 40% 95%);
+
+  --muted: hsl(217 33% 17%);
+  --muted-foreground: hsl(215 20% 60%);
+
+  --accent: hsl(221 83% 53%);
+  --accent-foreground: hsl(210 40% 98%);
+
+  --destructive: hsl(0 62% 50%);
+  --destructive-foreground: hsl(0 0% 100%);
+
+  --input: hsl(217 33% 20%);
+  --ring: hsl(221 83% 53%);
+
+  --sidebar-primary-border: hsl(from var(--sidebar-primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from var(--sidebar-accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(from var(--primary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from var(--secondary) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from var(--muted) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from var(--accent) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from var(--destructive) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+/* ─── BASE STYLES ─── */
+@layer base {
+  * {
+    @apply border-border;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.15s ease;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  .admin-theme {
+    @apply font-sans;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  /* Light mode body: warm luxury gradient */
+  html:not(.dark) .admin-theme {
+    background-image:
+      linear-gradient(135deg, transparent 35%, rgba(214, 173, 96, 0.1) 40%, rgba(214, 173, 96, 0.3) 50%, rgba(214, 173, 96, 0.1) 60%, transparent 65%),
+      linear-gradient(135deg, transparent 20%, rgba(255, 255, 255, 0.5) 30%, transparent 40%),
+      linear-gradient(135deg, transparent 70%, rgba(255, 255, 255, 0.4) 80%, transparent 90%);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  /* Dark mode body: clean solid dark — no gradient */
+  html.dark .admin-theme {
+    background-image: none;
+    background-color: hsl(222, 47%, 7%);
+    min-height: 100vh;
+  }
+}
+
+/* Keep the website's global CSS from leaking into the admin panel. */
+.admin-theme,
+.admin-theme * {
+  box-sizing: border-box;
+}
+
+.admin-theme h1,
+.admin-theme h2,
+.admin-theme h3,
+.admin-theme h4,
+.admin-theme h5,
+.admin-theme h6 {
+  color: inherit;
+  font-family: var(--app-font-sans);
+  margin: 0;
+}
+
+.admin-theme p,
+.admin-theme ul,
+.admin-theme ol {
+  margin: 0;
+}
+
+.admin-theme ul,
+.admin-theme ol {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-theme a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.admin-theme button,
+.admin-theme input,
+.admin-theme textarea,
+.admin-theme select {
+  font: inherit;
+}
+
+.admin-theme .container {
+  max-width: none;
+  padding: 0;
+}

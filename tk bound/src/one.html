@@ -1,0 +1,72 @@
+<header class="site-header">
+  <a href="/" class="logo">
+    <img
+      src="https://images.squarespace-cdn.com/content/v1/6744250b81521d675423a80c/e96cfab2-5022-4785-8362-016543582403/Clean+Elegant+Typography+Brand+Logo.png?format=300w"
+      alt="TKM"
+    />
+  </a>
+
+  <nav class="nav-links">
+    <a href="/">Home</a>
+    <a href="/wedding-stories">Wedding Stories</a>
+    <a href="/wedding-films">Wedding Films</a>
+    <a href="/couple-shoot">Couple Shoot</a>
+    <a href="/about">About Us</a>
+    <a href="/contact">Contact</a>
+    <a href="/blog">Blog</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5%;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .logo img {
+    width: 90px;
+    height: auto;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: #111;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+  }
+
+  .nav-links a:hover {
+    color: #9b7b4f;
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .logo img {
+      width: 72px;
+    }
+  }
+</style>
