@@ -90,6 +90,127 @@
   margin: 0;
 }
 
+.package-popover-content {
+  position: relative;
+  z-index: 9999;
+  width: auto;
+  max-width: min(18rem, calc(100vw - 2rem));
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--popover);
+  box-shadow: 0 18px 45px rgba(45, 32, 22, 0.18);
+}
+
+.package-calendar {
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 0.9rem;
+  border: 0;
+  border-radius: 0.9rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(252, 248, 242, 0.98));
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+.package-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.package-calendar__header h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.package-calendar__nav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.package-calendar__nav button {
+  width: 2rem;
+  height: 2rem;
+  min-height: 2rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted-foreground);
+}
+
+.package-calendar__nav button:hover {
+  border-color: var(--border);
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+.package-calendar__weekdays,
+.package-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.package-calendar__weekdays {
+  margin-bottom: 0.45rem;
+}
+
+.package-calendar__weekdays div {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+  text-align: center;
+}
+
+.package-calendar__day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  min-height: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.package-calendar__day--available {
+  border-color: transparent;
+}
+
+.package-calendar__day--available:hover {
+  border-color: var(--border);
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.package-calendar__day--selected,
+.package-calendar__day--selected:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 8px 18px rgba(120, 48, 38, 0.2);
+}
+
+.package-calendar__day--empty {
+  visibility: hidden;
+  cursor: default;
+}
+
 .package-builder-container {
   width: min(100%, 80rem);
   margin-inline: auto;

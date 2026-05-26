@@ -41,12 +41,12 @@ function Calendar({ selected, onSelect }) {
   const monthName = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })
 
   return (
-    <div className="w-full bg-card rounded-lg border border-border p-3 sm:p-4">
+    <div className="package-calendar w-full bg-card rounded-lg border border-border p-3 sm:p-4">
       <div className="space-y-4">
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="package-calendar__header flex items-center justify-between">
           <h2 className="text-sm font-semibold text-foreground">{monthName}</h2>
-          <div className="flex gap-1">
+          <div className="package-calendar__nav flex gap-1">
             <Button variant="ghost" size="icon" onClick={previousMonth}>
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -57,7 +57,7 @@ function Calendar({ selected, onSelect }) {
         </div>
 
         {/* Weekdays */}
-        <div className="grid grid-cols-7 gap-1 sm:gap-2">
+        <div className="package-calendar__weekdays grid grid-cols-7 gap-1 sm:gap-2">
           {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map((day) => (
             <div key={day} className="text-center text-xs font-medium text-muted-foreground">
               {day}
@@ -66,21 +66,21 @@ function Calendar({ selected, onSelect }) {
         </div>
 
         {/* Days */}
-        <div className="grid grid-cols-7 gap-1 sm:gap-2">
+        <div className="package-calendar__days grid grid-cols-7 gap-1 sm:gap-2">
           {days.map((day, index) => (
             <button
               key={index}
               onClick={() => day && handleDayClick(day)}
               className={cn(
-                'aspect-square text-xs sm:text-sm rounded-md sm:rounded-lg border transition-colors',
+                'package-calendar__day aspect-square text-xs sm:text-sm rounded-md sm:rounded-lg border transition-colors',
                 day === null && 'invisible',
                 selected &&
                   selected.getFullYear() === currentDate.getFullYear() &&
                   selected.getMonth() === currentDate.getMonth() &&
                   selected.getDate() === day
-                  ? 'bg-primary text-primary-foreground border-primary'
-                  : 'border-border hover:bg-accent hover:border-accent',
-                day === null && 'cursor-default'
+                  ? 'package-calendar__day--selected bg-primary text-primary-foreground border-primary'
+                  : 'package-calendar__day--available border-border hover:bg-accent hover:border-accent',
+                day === null && 'package-calendar__day--empty cursor-default'
               )}
               disabled={!day}
             >
